@@ -26,7 +26,7 @@ export default class Signup extends React.Component{
 	onSubmit = (evt) => {
       evt.preventDefault();
     	let self = this;
-		axios.post(`http://localhost:3003/api/register`, this.state.form)
+		axios.post(`${process.env.REACT_APP_BASE_URL}/api/register`, this.state.form)
 		  .then(function (response) {
 		    console.log(response);
 		   if(response.data.status === 200)

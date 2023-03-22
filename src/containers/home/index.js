@@ -79,7 +79,7 @@ export default class Home extends React.Component{
     }
     this.setState({...this.state, load2: true});
     let self = this;
-    axios.post(`http://localhost:3003/api/summarize`,{"prompt":self.state.calldata})
+    axios.post(`${process.env.REACT_APP_BASE_URL}/api/summarize`,{"prompt":self.state.calldata})
 		  .then(function (response) {
         const text = response.data.answer.response;
         self.setState({...self.state, summarizeData:text,load2: false});
